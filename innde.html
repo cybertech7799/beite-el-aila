@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كافيتريا بيت العيلة | القعدة البلدي على أصولها</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- Root Variables & Theme Colors --- */
+        :root {
+            --primary-color: #A62B2B;   /* أحمر شعبي مصري */
+            --secondary-color: #1A365D; /* أزرق خيامية الملكي */
+            --accent-color: #D99B26;    /* أصفر خردلي / ذهبي */
+            --text-dark: #2B2D42;
+            --text-light: #F4F4F9;
+            --bg-light: #FFFBF4;        /* بيج دافئ للمجالس */
+            --card-bg: #FFFFFF;
+            --transition: all 0.3s ease;
+        }
+
+        /* --- Reset & Base Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+
+        h2.section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        /* --- Header / Navbar --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(26, 54, 93, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 5%;
+        }
+
+        .logo {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            font-weight: 900;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-color);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            background: url('https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&q=80&w=1600') no-repeat center center/cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            color: var(--text-light);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(166,43,43,0.85), rgba(26,54,93,0.85));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--accent-color);
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--secondary-color);
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        /* --- Features Section --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background-color: var(--card-bg);
+            padding: 40px 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-bottom: 4px solid var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(166,43,43,0.1);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .feature-card p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* --- Menu Section --- */
+        .menu-section {
+            background-color: #FFF2DF;
+        }
+
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .tab-btn {
+            background-color: var(--card-bg);
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .tab-btn:hover, .tab-btn.active {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .menu-item {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border-right: 5px solid var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .menu-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+        }
+
+        .menu-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            display: block;
+        }
+
+        .menu-desc {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .menu-price {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            white-space: nowrap;
+        }
+
+        /* --- Footer Section (اللي كان فيها المشكلة في صورتك) --- */
+        .footer {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding-top: 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-info h3, .footer-details h3 {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-info p {
+            font-weight: 300;
+            margin-bottom: 25px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: var(--text-light);
+            background-color: rgba(255,255,255,0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--accent-color);
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-details ul {
+            list-style: none;
+        }
+
+        .footer-details ul li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-weight: 300;
+        }
+
+        .footer-details ul li i {
+            color: var(--accent-color);
+            margin-top: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+            background-color: #112542;
+            color: #aaa;
+        }
+
+        /* --- الشاشات الصغيرة والموبايل --- */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--secondary-color);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: 0.4s ease;
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .hero-title {
+                font-size: 2.3rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-mug-hot"></i> بيت العيلة
+            </a>
+            <nav class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">الرئيسية</a>
+                <a href="#vibe" class="nav-link">مميزاتنا</a>
+                <a href="#menu" class="nav-link">المنيو</a>
+                <a href="#contact" class="nav-link">اتصل بنا</a>
+            </nav>
+            <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-subtitle">أهلاً بكم في كافيتريا بيت العيلة</span>
+            <h1 class="hero-title">لمتنا أحلى وقعدتنا بلدي</h1>
+            <p class="hero-description">عش أجواء القهوة المصرية الأصيلة مع أحلى قعدة عربي، لمتنا تجمع الشباب والعائلات طول الـ 24 ساعة.</p>
+            <a href="#menu" class="btn btn-primary">شوف المنيو بتاعنا</a>
+        </div>
+    </section>
+
+    <section id="vibe" class="container">
+        <h2 class="section-title">إيه اللي يميز قعدتنا؟</h2>
+        <p class="section-subtitle">الراحة والخدمة الممتازة في انتظارك</p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-couch"></i></div>
+                <h3>قعدة عربي أصيلة</h3>
+                <p>جلسات أرضية مريحة ومبهجة مستوحاة من الشارع المصري وروح زمان.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-clock"></i></div>
+                <h3>شغالين 24 ساعة</h3>
+                <p>مكانا مفتوح ليك في أي وقت، ليل أو نهار، الشاي الكشري والقهوة جاهزين دايماً.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-child-reaching"></i></div>
+                <h3>منطقة ألعاب للأطفال</h3>
+                <p>متاح ألعاب ومجسمات وبوابات هوائية تنطيطية عشان أطفالك يفرحوا بأمان.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-users"></i></div>
+                <h3>جو عائلي وشبابي</h3>
+                <p>مكان مجهز ومناسب لجمعة الصحاب ولمة العيلة الكبيرة بخصوصية وراحة تامة.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <h2 class="section-title">منيو بيت العيلة</h2>
+            <p class="section-subtitle">كل اللي بتتمناه بأسعار زمان (من 1 إلى 200 جنيه)</p>
+            
+            <div class="menu-tabs">
+                <button class="tab-btn active" onclick="filterMenu('hot')">مشروبات ساخنة</button>
+                <button class="tab-btn" onclick="filterMenu('cold')">مشروبات باردة</button>
+                <button class="tab-btn" onclick="filterMenu('shisha')">شيشة عربي</button>
+                <button class="tab-btn" onclick="filterMenu('snacks')">تسالي ومأكولات</button>
+            </div>
+
+            <div class="menu-grid" id="menuGrid">
+                <div class="menu-item" data-category="hot">
+                    <div class="menu-details">
+                        <span class="menu-name">شاي كشري في الخمسينة</span>
+                        <p class="menu-desc">شاي مصري أصيل بالنعناع أو المرمية</p>
+                    </div>
+                    <span class="menu-price">15 ج.م</span>
+                </div>
+                <div class="menu-item" data-category="hot">
+                    <div class="menu-details">
+                        <span class="menu-name">قهوة تركي على الرمالة</span>
+                        <p class="menu-desc">بن محوج مميز (ع الريحة / مظبوط)</p>
+                    </div>
+                    <span class="menu-price">25 ج.م</span>
+                </div>
+                <div class="menu-item" data-category="cold">
+                    <div class="menu-details">
+                        <span class="menu-name">مانجو طبيعي فريش</span>
+                        <p class="menu-desc">عصير مانجو طبيعي مثلج قطب</p>
+                    </div>
+                    <span class="menu-price">45 ج.م</span>
+                </div>
+                <div class="menu-item" data-category="cold">
+                    <div class="menu-details">
+                        <span class="menu-name">ليمون بالنعناع منعش</span>
+                        <p class="menu-desc">مضروب في الخلاط مع الثلج المجروش</p>
+                    </div>
+                    <span class="menu-price">30 ج.م</span>
+                </div>
+                <div class="menu-item" data-category="shisha">
+                    <div class="menu-details">
+                        <span class="menu-name">شيشة قص تفاح أصلي</span>
+                        <p class="menu-desc">حجر مميز مع غيار فحم مستمر</p>
+                    </div>
+                    <span class="menu-price">35 ج.م</span>
+                </div>
+                <div class="menu-item" data-category="snacks">
+                    <div class="menu-details">
+                        <span class="menu-name">طبق ترمس بلدي</span>
+                        <p class="menu-desc">مع الليمون والكمون والشطة الحارة</p>
+                    </div>
+                    <span class="menu-price">20 ج.م</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="footer">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <h3>كافيتريا بيت العيلة</h3>
+                <p>مكانك الأول للمة العيلة والصحاب في قلب القاهرة. بنقدم أفضل خدمة وبنشتري رضاك.</p>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-details">
+                <h3>معلومات التواصل</h3>
+                <ul>
+                    <li><i class="fa-solid fa-location-dot"></i> السواح، الأميريّة الشمالية، الأميرية، محافظة القاهرة 11715</li>
+                    <li><i class="fa-solid fa-phone"></i> 01155216666</li>
+                    <li><i class="fa-solid fa-clock"></i> مفتوح 24 ساعة طوال أيام الأسبوع</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 كافيتريا بيت العيلة. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script>
+        // فتح وإغلاق قائمة الموبايل
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = hamburger.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // إغلاق القائمة عند الضغط على أي لينك
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.querySelector('i').classList.remove('fa-xmark');
+                hamburger.querySelector('i').classList.add('fa-bars');
+                
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+
+        // نظام تصفية المنيو (الفلتر)
+        function filterMenu(category) {
+            const tabs = document.querySelectorAll('.tab-btn');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+                if(tab.getAttribute('onclick').includes(category)) {
+                    tab.classList.add('active');
+                }
+            });
+
+            const menuItems = document.querySelectorAll('.menu-item');
+            menuItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                if (category === 'all' || itemCategory === category) {
+                    item.style.display = 'flex';
+                    item.style.opacity = '0';
+                    setTimeout(() => { item.style.opacity = '1'; }, 50);
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // إظهار المشروبات الساخنة كنوع افتراضي عند التحميل
+        document.addEventListener('DOMContentLoaded', () => {
+            filterMenu('hot');
+        });
+    </script>
+</body>
+</html>
